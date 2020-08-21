@@ -10969,3 +10969,16 @@ a.text-dark:focus {
   font-size: 18px;
 }
 
+.search-button {
+  width: 18%;
+  border-radius: revert;
+}
+
+.search-input {
+  width: 80%;
+}
+
+.right-panel-box {
+  margin-top: 10px;
+}
+
