@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -27,11 +28,18 @@ class ArticleController extends AdminController
         $grid = new Grid(new Article());
 
         $grid->column('id', __('Id'));
-        $grid->column('category_id', __('Category id'));
-        $grid->column('title', __('Title'));
-        $grid->column('content', __('Content'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('category_id', __('所属分类'))->display(function ($id){
+            $category = Category::findOrfail($id);
+            return $category->name;
+        });
+        $grid->column('title', __('标题'));
+        $states = [
+            'on'  => ['value' => 1, 'text' => '通过', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => '未通过', 'color' => 'danger'],
+        ];
+        $grid->column('published',__('是否通过'))->switch($states);
+        $grid->column('created_at', __('创建时间'));
+        $grid->column('updated_at', __('修改时间'));
 
         return $grid;
     }
@@ -65,9 +73,15 @@ class ArticleController extends AdminController
     {
         $form = new Form(new Article());
 
-        $form->number('category_id', __('Category id'));
-        $form->text('title', __('Title'));
-        $form->textarea('content', __('Content'));
+        $options = Category::query()->pluck('name','id');
+        $form->select('category_id', __('所属分类'))->options($options);
+        $form->text('title', __('标题'));
+        $form->markdown('content', __('正文'));
+        $states = [
+            'on'  => ['value' => 1, 'text' => '通过', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => '未通过', 'color' => 'danger'],
+        ];
+        $form->switch('published',__('是否通过'))->states($states);
 
         return $form;
     }

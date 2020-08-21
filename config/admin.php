@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Laravel-admin',
+    'name' => 'etcetera-blog',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>Etcetera</b> blog',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     */
     'route' => [
 
-        'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
+        'prefix' => env('ADMIN_ROUTE_PREFIX', 'jx_fallback'),
 
         'namespace' => 'App\\Admin\\Controllers',
 
@@ -396,6 +396,19 @@ return [
     |
     */
     'extensions' => [
+        'simplemde' => [
+
+            // Set to false if you want to disable this extension
+            'enable' => true,
+
+            // If you want to set an alias for the calling method
+            'alias' => 'markdown',
+
+            // Editor configuration
+            'config' => [
+
+            ]
+        ]
 
     ],
 ];

@@ -25,12 +25,11 @@ class CategoryController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Category());
-
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
-        $grid->column('priority', __('Priority'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('name', __('名称'));
+        $grid->column('priority', __('排序'));
+        $grid->column('created_at', __('修改时间'));
+        $grid->column('updated_at', __('创建时间'));
 
         return $grid;
     }
@@ -43,7 +42,7 @@ class CategoryController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Category::findOrFail($id));
+        $show = new Show(Category::query()->findOrfail($id));
 
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
@@ -63,8 +62,8 @@ class CategoryController extends AdminController
     {
         $form = new Form(new Category());
 
-        $form->text('name', __('Name'));
-        $form->number('priority', __('Priority'));
+        $form->text('name', __('名称'));
+        $form->number('priority', __('排序'))->default(0);
 
         return $form;
     }
