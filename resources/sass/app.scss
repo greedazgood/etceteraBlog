@@ -1,1 +1,35 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.container{
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 150px;
+  background-color: #ffffff;
+  border: 2px solid #F1F1F1;
+}
+nav{
+  border-bottom: 1px solid #CCD0D6;
+  background-color: #ffffff;
+}
+
+.navbar-brand{
+  font-size: 28px;
+}
+
+.card-header{
+  background-color: #f8fafc;
+}
+
+.left-panel,.right-panel{
+  margin-top: 10px;
+  padding: 5px;
+}
+
+
