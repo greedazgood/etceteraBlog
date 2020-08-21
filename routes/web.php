@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Article\ArticleController@index');
 Route::get('/list', 'Article\ArticleController@articleList');
-Route::get('/detail', 'Article\ArticleController@articleDetail');
+Route::get('/article/{article}', 'Article\ArticleController@articleDetail');
