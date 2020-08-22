@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Article\ArticleController@index');
 Route::get('/article/{article}', 'Article\ArticleController@articleDetail');
+Route::get('/cat/{catname}','Article\ArticleController@catList');
+Route::get('/archive/{time}','Article\ArticleController@archiveList');
