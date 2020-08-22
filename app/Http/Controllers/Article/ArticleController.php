@@ -26,7 +26,7 @@ class ArticleController extends Controller
         $this->cat_list = Category::query()->orderBy('priority')->pluck('name');
     }
 
-    public function index(Request $request, $catname)
+    public function index()
     {
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
