@@ -10969,11 +10969,14 @@ body {
 }
 
 .article_sub {
+  padding-left: 5%;
   font-size: 15px;
   margin-bottom: 10px;
 }
 
 .article_content {
+  padding-left: 10%;
+  padding-right: 10%;
   font-size: 18px;
 }
 

@@ -3,24 +3,20 @@
 namespace App\Http\Controllers\Article;
 
 use App\Http\Controllers\Controller;
-use App\Markdown\Markdown;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Parsedown;
 
 class ArticleController extends Controller
 {
-    protected $markdown;
-
     protected $time_list;
 
     protected $cat_list;
 
-    public function __construct(Markdown $markdown)
+    public function __construct()
     {
-        $this->markdown = $markdown;
-
         $this->time_list = Article::getTimeList();
 
         $this->cat_list = Category::query()->orderBy('priority')->pluck('name');
@@ -38,7 +34,8 @@ class ArticleController extends Controller
 
     public function articleDetail(Article $article)
     {
-        $content = $this->markdown->markdown($article->content);
+        $parse = new Parsedown();
+        $content = $parse->setMarkupEscaped(true)->text($article->content);
         $article->content = $content;
         return view('detail',['article'=>$article]);
     }
