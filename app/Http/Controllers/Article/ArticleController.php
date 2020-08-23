@@ -37,7 +37,10 @@ class ArticleController extends Controller
         $parse = new Parsedown();
         $content = $parse->setMarkupEscaped(true)->text($article->content);
         $article->content = $content;
-        return view('detail',['article'=>$article]);
+
+        $data['prev'] = Article::query()->where('id','<',$article->id)->select('id','title')->first();
+        $data['next'] = Article::query()->where('id','>',$article->id)->select('id','title')->first();
+        return view('detail',['article'=>$article,'data'=>$data]);
     }
 
     public function catList($catname)

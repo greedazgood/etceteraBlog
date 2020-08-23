@@ -8,6 +8,7 @@
 @import '~bootstrap/scss/bootstrap';
 body{
     min-width: 1366px;
+    background-color: #ffffff;
 }
 .container{
     min-width: 1366px;
@@ -76,6 +77,13 @@ body{
 }
 .right-panel-box{
     margin-top: 10px;
+}
+
+.pagination{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 
