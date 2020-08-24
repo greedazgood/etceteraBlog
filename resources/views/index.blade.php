@@ -7,9 +7,10 @@
                 <div class="col-md-4 panel-title">{{$data['cat_name']}}：</div>
                     <ul class="article_list">
                         @foreach($data['article_list'] as $article)
-                        <li>{{$article['updated_at']->format('Y-m-d')}}&emsp;<a href="/article/{{$article['id']}}">{{$article['title']}}</a></li>
+                        <li>{{$article['updated_at']?$article['updated_at']->format('Y-m-d'):''}}&emsp;<a href="/article/{{$article['id']}}">{{$article['title']}}</a></li>
                         @endforeach
                     </ul>
+                <div>{{ $data['article_list']->links() }}</div>
             </div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-8">

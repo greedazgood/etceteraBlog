@@ -26,8 +26,8 @@ class ArticleController extends Controller
     {
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->limit(20)->get();
-        $data['cat_name'] = '最近';
+        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->paginate(15);
+        $data['cat_name'] = '全部';
 
         return view('index',['data'=>$data]);
     }
@@ -54,7 +54,7 @@ class ArticleController extends Controller
         }
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->where('category_id',$cat)->limit(20)->get();
+        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->where('category_id',$cat)->paginate(15);
         $data['cat_name'] = $catname;
         return view('index',['data'=>$data]);
     }
@@ -70,7 +70,7 @@ class ArticleController extends Controller
 
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->whereBetween('updated_at',[$month_start,$month_end])->get();
+        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->whereBetween('updated_at',[$month_start,$month_end])->paginate(15);
         $data['cat_name'] = $time;
 
         return view('index',['data'=>$data]);
@@ -83,7 +83,7 @@ class ArticleController extends Controller
         ]);
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->where('title','like',"%{$request->keyword}%")->limit(20)->get();
+        $data['article_list'] = Article::query()->Published()->where('title','like',"%{$request->keyword}%")->paginate(15);
         $data['cat_name'] = "\"".$request->keyword."\""." 搜索结果";
         return view('index',['data'=>$data]);
     }

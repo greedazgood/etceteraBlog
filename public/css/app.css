@@ -10946,6 +10946,7 @@ body {
 }
 
 .article_list {
+  min-height: 465px;
   font-family: Arial, serif;
   font-size: 16px;
   list-style: square;
