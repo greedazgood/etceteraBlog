@@ -26,7 +26,7 @@ class ArticleController extends Controller
     {
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->limit(20)->get();
+        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->limit(20)->get();
         $data['cat_name'] = '最近';
 
         return view('index',['data'=>$data]);
@@ -54,7 +54,7 @@ class ArticleController extends Controller
         }
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->where('category_id',$cat)->limit(20)->get();
+        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->where('category_id',$cat)->limit(20)->get();
         $data['cat_name'] = $catname;
         return view('index',['data'=>$data]);
     }
@@ -62,7 +62,7 @@ class ArticleController extends Controller
     public function archiveList($time)
     {
         $unix_time = strtotime($time);
-        if (!$unix_time || !in_array($time,$this->time_list)){
+        if (!$unix_time || !in_array($time,$this->time_list->toArray())){
             abort(404);
         }
         $month_start = Carbon::parse($time)->startOfMonth();
@@ -70,7 +70,7 @@ class ArticleController extends Controller
 
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
-        $data['article_list'] = Article::query()->Published()->whereBetween('updated_at',[$month_start,$month_end])->get();
+        $data['article_list'] = Article::query()->Published()->orderByDesc('updated_at')->whereBetween('updated_at',[$month_start,$month_end])->get();
         $data['cat_name'] = $time;
 
         return view('index',['data'=>$data]);

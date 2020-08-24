@@ -5,6 +5,7 @@ namespace App\Models;
 use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class Article extends Model
 {
@@ -23,11 +24,10 @@ class Article extends Model
 
     public static function getTimeList()
     {
-
-        $timeList[] = Carbon::now()->format('Y-m');
-        for ($i = 1; $i <= 12;$i++){
-            $timeList[] = Carbon::parse("- {$i}month")->format('Y-m');
-        }
+        $during = 3600 * 24 * 7;
+        $timeList = Cache::remember('time-list',$during,function (){
+            return Article::query()->Published()->select(\DB::raw('date_format(updated_at,"%Y-%m") as month'))->distinct()->orderByDesc('month')->pluck('month');
+        });
         return $timeList;
     }
 }
