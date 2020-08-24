@@ -7,7 +7,7 @@
             {!! $article['content'] !!}
         </div>
         <div class="row pagination" >
-            <div class="col-md-4">上一篇<br/><br/><a href="/article/{{$data['prev']?$data['prev']['id']:''}}">{{$data['prev']?$data['prev']['title']:''}}</a></div>
+            <div class="col-md-4">上一篇<br/><a href="/article/{{$data['prev']?$data['prev']['id']:''}}">{{$data['prev']?$data['prev']['title']:''}}</a></div>
             <div class="offset-4 col-md-4" style="text-align: right">下一篇<br/><a href="/article/{{$data['next']?$data['next']['id']:''}}">{{$data['next']?$data['next']['title']:""}}</a></div>
         </div>
 
