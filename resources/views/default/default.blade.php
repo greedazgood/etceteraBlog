@@ -11,7 +11,7 @@
         <a class="navbar-brand" href="/">Etcetera Blog</a>
     </nav>
     @yield('content')
-    <div id="category" style="position: absolute;right: 10px;top:20%;width: 200px;z-index: 999"></div>
+    <div id="category" style=""></div>
 </div>
 <script src="/js/prism.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>

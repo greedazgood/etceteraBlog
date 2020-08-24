@@ -2,7 +2,7 @@
 
 @section('content')
         <div class="article_title" style="text-align: center">{{$article['title']}}</div>
-        <div class="article_sub"> {{$data['article_time']}} &emsp;&emsp;分类：<a href="/cat/">{{$data['category']}}</a></div>
+        <div class="article_sub"> {{$data['article_time']}} &emsp;&emsp;分类：<a href="/cat/{{$data['category']}}">{{$data['category']}}</a></div>
         <div class="article_content">
             {!! $article['content'] !!}
         </div>
