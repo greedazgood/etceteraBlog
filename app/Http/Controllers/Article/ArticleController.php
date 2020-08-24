@@ -52,7 +52,6 @@ class ArticleController extends Controller
         if (!$cat){
             abort(404);
         }
-
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
         $data['article_list'] = Article::query()->Published()->where('category_id',$cat)->limit(20)->get();
@@ -82,7 +81,6 @@ class ArticleController extends Controller
         $request->validate([
             'keyword' => 'required'
         ]);
-
         $data['time_list'] = $this->time_list;
         $data['cat_list'] = $this->cat_list;
         $data['article_list'] = Article::query()->Published()->where('title','like',"%{$request->keyword}%")->limit(20)->get();
