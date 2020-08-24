@@ -10905,6 +10905,7 @@ a.text-dark:focus {
 }
 
 body {
+  width: 100%;
   min-width: 1366px;
   background-color: #ffffff;
 }
@@ -10976,6 +10977,7 @@ body {
 }
 
 .article_content {
+  width: 100%;
   padding-left: 10%;
   padding-right: 10%;
   font-size: 18px;

@@ -23,6 +23,7 @@ class Article extends Model
 
     public static function getTimeList()
     {
+
         $timeList[] = Carbon::now()->format('Y-m');
         for ($i = 1; $i <= 12;$i++){
             $timeList[] = Carbon::parse("- {$i}month")->format('Y-m');
