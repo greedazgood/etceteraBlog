@@ -76,4 +76,17 @@ class ArticleController extends Controller
 
         return view('index',['data'=>$data]);
     }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'keyword' => 'required'
+        ]);
+
+        $data['time_list'] = $this->time_list;
+        $data['cat_list'] = $this->cat_list;
+        $data['article_list'] = Article::query()->Published()->where('title','like',"%{$request->keyword}%")->limit(20)->get();
+        $data['cat_name'] = "\"".$request->keyword."\""." 搜索结果";
+        return view('index',['data'=>$data]);
+    }
 }

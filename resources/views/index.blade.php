@@ -7,7 +7,7 @@
                 <div class="col-md-4 panel-title">{{$data['cat_name']}}：</div>
                     <ul class="article_list">
                         @foreach($data['article_list'] as $article)
-                        <li>{{$article['updated_at']}}&emsp;<a href="/article/{{$article['id']}}">{{$article['title']}}</a></li>
+                        <li>{{$article['updated_at']->format('Y-m-d')}}&emsp;<a href="/article/{{$article['id']}}">{{$article['title']}}</a></li>
                         @endforeach
                     </ul>
             </div>
@@ -15,8 +15,10 @@
         <div class="col-md-4 col-sm-4 col-xs-8">
             <div class="right-panel">
                 <div class="col-md-12">
-                    <input class="search-input" type="text" placeholder="Search for...">
-                    <button class="search-button">Search</button>
+                    <form action="/search">
+                        <input class="search-input" type="text" name="keyword" placeholder="Search for...">
+                        <button class="search-button">Search</button>
+                    </form>
                 </div>
                 <div class="col-md-12 right-panel-box">
                     <div class="panel-title">分类：</div>

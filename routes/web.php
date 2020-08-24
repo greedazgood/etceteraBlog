@@ -17,3 +17,4 @@ Route::get('/', 'Article\ArticleController@index');
 Route::get('/article/{article}', 'Article\ArticleController@articleDetail');
 Route::get('/cat/{catname}','Article\ArticleController@catList');
 Route::get('/archive/{time}','Article\ArticleController@archiveList');
+Route::get('/search','Article\ArticleController@search');
