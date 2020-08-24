@@ -12,7 +12,7 @@
         </div>
 
         <div id="category"></div>
-        <script src="/js/jquery-3.5.1.min.js"></script>
+        <script src="https://libs.cdnjs.net/jquery/1.10.0/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $("h2,h3,h4,h5,h6").each(function(i,item){
