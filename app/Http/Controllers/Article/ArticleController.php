@@ -19,7 +19,7 @@ class ArticleController extends Controller
     {
         $this->time_list = Article::getTimeList();
 
-        $this->cat_list = Category::query()->orderBy('priority')->pluck('name');
+        $this->cat_list = Category::query()->orderBy('priority')->orderByDesc('priority')->pluck('name');
     }
 
     public function index()
