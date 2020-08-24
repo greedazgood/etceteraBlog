@@ -76,7 +76,7 @@ class ArticleController extends AdminController
         $options = Category::query()->pluck('name','id');
         $form->select('category_id', __('所属分类'))->options($options);
         $form->text('title', __('标题'));
-        $form->markdown('content', __('正文'));
+        $form->simplemde('content', __('正文'));
         $states = [
             'on'  => ['value' => 1, 'text' => '通过', 'color' => 'success'],
             'off' => ['value' => 0, 'text' => '未通过', 'color' => 'danger'],

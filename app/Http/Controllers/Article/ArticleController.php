@@ -40,6 +40,9 @@ class ArticleController extends Controller
 
         $data['prev'] = Article::query()->where('id','<',$article->id)->select('id','title')->first();
         $data['next'] = Article::query()->where('id','>',$article->id)->select('id','title')->first();
+        $data['category'] = $article->category->name;
+        $data['article_time'] = Carbon::parse($article->updated_at)->format('Y-m-d');
+
         return view('detail',['article'=>$article,'data'=>$data]);
     }
 

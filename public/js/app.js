@@ -37333,8 +37333,8 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\website\etceteraBlog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\website\etceteraBlog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\phpstudy_pro\WWW\blog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\phpstudy_pro\WWW\blog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
