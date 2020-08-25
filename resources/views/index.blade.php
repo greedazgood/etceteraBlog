@@ -25,7 +25,7 @@
                     <div class="panel-title">分类：</div>
                     <ul class="cat_list">
                         @foreach($data['cat_list'] as $cat)
-                            <li><a href="/cat/{{$cat}}">{{$cat}}</a></li>
+                            <li><a href="/category/{{$cat}}">{{$cat}}</a></li>
                         @endforeach
                     </ul>
                 </div>
