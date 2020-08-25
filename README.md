@@ -1,5 +1,5 @@
-###etceteraBlog  
-安装  
+etceteraBlog
+
 安装第三方包
 ```
 composer install
