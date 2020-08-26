@@ -1,8 +1,7 @@
 etceteraBlog  
 ===
-安装
-------  
-第三方包
+
+安装第三方包
 ```
 composer install
 ```   
