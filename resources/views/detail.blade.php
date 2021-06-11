@@ -1,5 +1,6 @@
 @extends('default.default')
-
+<link rel="stylesheet" href="/css/prism.css">
+<script src="/js/prism.js"></script>
 @section('content')
         <div class="article_title" style="text-align: center">{{$article['title']}}</div>
         <div class="article_sub"> {{$data['article_time']}} &emsp;&emsp;分类：<a href="/category/{{$data['category']}}">{{$data['category']}}</a></div>
